@@ -1,0 +1,424 @@
+body {
+	background-color: #ffffff;
+	margin: 0;
+	font-family: Verdana, Arial, Courier;
+	font-size: 12px;
+}
+h1 {
+	margin: 0 0 9px -10px;
+	padding: 0;
+	color: #ffffff;
+	font-size: 18px;
+}
+h2 {
+	margin: 2px 0 10px 0;
+	padding: 0;
+	font-size: 14px;
+}
+#divHeader {
+	padding: 5px 0 4px 40px;
+	margin: 0;
+	background-color: #666666;
+	width: 100%;
+	position: fixed;
+}
+#tabMenuHowto, #tabMenuSimple, #tabMenuHistory, #tabMenuAbout, #divCopyright {
+	padding: 50px 0 4px 50px;
+}
+.divMenu, .divMenuActive, .divMenuHover {
+	display: inline;
+	color: #ffffff;
+	font-size: 10px;
+	padding: 3px 6px 5px 6px;
+	margin: 0 2px 0 2px;
+	cursor: pointer;
+	background-color: transparent;
+}
+.divMenuActive {
+	background-color: #ffffff;
+	color: #000000;
+}
+.divMenuHover {
+	background-color: #ffffff;
+	color: #000000;
+}
+#MenuSimple, #MenuExt {
+	font-weight: bold;
+	font-size: 12px;
+}
+#tabMenuHowto, #tabMenuSimpleResult, #tabMenuHistory, #tabMenuAbout {
+	display: none;
+}
+input {
+	font-size: 12px;
+	padding-left: 3px;
+	font-family: Verdana, Arial, Courier;
+	outline:none;
+}
+textarea {
+	font-size: 12px;
+	padding: 3px 0 0 3px;
+	font-family: Verdana, Arial, Courier;
+	width: 577px;
+	outline:none;
+}
+#txtSourceText, #txtDestText, #inpBorderSize, #inpBorderColor, #inpLjCutAfter, #inpLjCutText, #inpAddNumberText {
+	border: 1px solid #bbbbbb;
+}
+#supVersion {
+	font-size: 12px;
+	color: #dedede;
+}
+input.button, input.buttonExt {
+	font-size: 16px;
+	font-family: Verdana, Arial, Courier;
+	width: 150px;
+	text-align: center;
+	letter-spacing: 0.1em;
+	margin-top: 5px;
+}
+input.buttonExt {
+	width: 180px;
+}
+p {
+	margin: 0;
+	padding: 3px 0 5px 0;
+}
+#tabMenuHowto p, #tabMenuHistory p, #tabMenuAbout p {
+	margin: 0;
+	padding: 5px 0 7px 0;
+	line-height: 18px;
+}
+#colorSelector {
+	cursor: pointer;
+}
+.lblAddRepost, .lblAddLikes, .lblAddCopyright {
+}
+#spanResultHtml, #spanResultBBCode {
+	font-size: 13px;
+}
+#spanResultHtml {
+	font-weight: bold;
+	cursor: auto;
+}
+#spanResultBBCode {
+	font-weight: normal;
+	border-bottom: 1px dashed #777777;
+	cursor: pointer;
+	color: #555555;
+}
+
+#divToggleSettings {
+	margin: 0 7px 0 -35px;
+	display: inline;
+	position: fixed;
+	cursor: pointer;
+	background-color: #777777;
+}
+#imgToggleSettings {
+	display: none;
+}
+#SettingsCollapseWrapper {
+}
+#SettingsCollapseWrapper p {
+	line-height: 21px;
+}
+#tabMenuSimpleResult, #tabMenuExt {
+}
+#divSelectImageSize {
+	display: none;
+}
+#divImproveResult {
+	overflow: auto; 
+	overflow-y:auto;
+	overflow-x: hidden;
+	height: 80px;
+}
+#divExtResult {
+	display: none;
+}
+#spanRefreshHelpText, #spanExtRefreshHelpText {
+	color: #888888;
+	display: none;
+}
+.pTxtBeforeImg, .pTxtAfterImg {
+	margin: 2px 0 5px 0;
+	padding: 0;
+	width: 800px;
+	background-color: #ffffff;
+	cursor: text;
+	border: 1px solid #ffffff;
+}
+.inpTxtBeforeImg, .inpTxtAfterImg {
+	margin: 2px 0 2px 0;;
+	padding: 0 0 0 1px;
+	border: none;
+	width: 785px;
+	background-color: transparent;
+	overflow: hidden;
+	font-family: "Times New Roman",Times,Georgia,Serif;
+	font-size: 18px;
+	font-weight: normal;
+}
+.imgPreviewHtml {
+	margin: 0 0 0 4px;
+}
+#divCopyright {
+	font-size: 11px;
+	color: #555555;
+}
+#divBottomLink {
+	position: absolute;
+	padding: 0 5px 5px 60px;
+	color: #aaaaaa;
+}
+body > div#divBottomLink {
+	position: fixed;
+	right: 0px;
+	top: 32px;
+	padding: 0 6px 5px 0;
+	color: #aaaaaa;
+}
+#divBottomLink a:link, #divBottomLink a:visited {
+	color: #aaaaaa;
+	text-decoration: underline;
+	font-size: 10px;
+}
+#divBottomLink a:hover, #divBottomLink a:active {
+	color: #dadada;
+	text-decoration: underline;
+	font-size: 10px;
+}
+.rightarrowsmall {
+	font-size: 18px;
+	font-family: "Times New Roman",Times,Georgia,Serif;
+}
+.leftarrowsmall {
+	font-size: 18px;
+	font-family: "Times New Roman",Times,Georgia,Serif;
+}
+#spanExtFormatLink {
+	color: #555555;
+	cursor: pointer;
+	border-bottom: 1px dashed #555555;
+}
+#spanExtFormatLink:hover {
+	color: #000000;
+}
+
+.moveArrowUp, .moveArrowDown {
+	font-size: 32px;
+	cursor: pointer;
+	font-family: "Times New Roman",Times,Georgia,Serif;
+	color: #cccccc;
+}
+.moveArrowUp {
+	margin: 0 0 0 13px;
+}
+.moveArrowDown {
+	margin: 0 0 0 4px;
+}
+.delImage {
+	font-size: 24px;
+	cursor: pointer;
+	color: #cccccc;
+	margin: 0 0 0 15px;
+}
+
+#divImgSizeSwitcher {
+	margin: 0 0 20px 3px;
+}
+.switchImgSize {
+	font-size: 14px;
+	color: #777777;
+	cursor: pointer;
+	border-bottom: 1px dashed #777777;
+	margin: 0 0 0 5px;
+}
+.switchImgSize:hover {
+	color: #000000;
+}
+.switchImgSizeActive {
+	font-weight: bold !important;
+	color: #000000 !important;
+	border-bottom: none !important;
+	cursor: auto !important;
+}
+.switchAddNumber {
+	color: #777777;
+	cursor: pointer;
+	border-bottom: 1px dashed #777777;
+	margin: 0 0 0 5px;
+}
+.switchAddNumberActive {
+	font-weight: bold !important;
+	color: #000000 !important;
+	border-bottom: none !important;
+	cursor: auto !important;
+}
+
+#hrefSortImages:link, #hrefSortImages:active, #hrefSortImages:visited, 
+#spanScrollToTop, #spanScrollToBottom, #spanPreviewResult {
+	font-size: 14px;
+	color: #777777;
+	cursor: pointer;
+	border-bottom: 1px dashed #777777;
+	margin: 0 0 0 5px;
+	text-decoration: none;
+}
+#hrefSortImages:hover, 
+#spanScrollToTop:hover, #spanScrollToBottom:hover, #spanPreviewResult:hover {
+	font-size: 14px;
+	color: #000000;
+	border-bottom: 1px dashed #777777;
+	text-decoration: none;
+}
+.spanResultSwitch {
+	color: #555555;
+	cursor: pointer;
+	border-bottom: 1px dashed #555555;
+	margin: 0 0 0 5px;
+	text-decoration: none;
+}
+.spanResultSwitch:hover {
+	color: #000000;
+	border-bottom: 1px dashed #555555;
+	text-decoration: none;
+}
+.spanResultSwitchActive {
+	font-weight: bold !important;
+	color: #000000 !important;
+	border-bottom: none !important;
+	cursor: auto !important;
+}
+
+.divImgDeleted {
+	border: 1px dotted #555555;
+	width: 605px;
+	padding: 5px 5px 10px 5px;
+	margin: 0 0 20px 0;
+}
+.restoreImg {
+	cursor: pointer;
+	color: #888888;
+	border-bottom: 1px dashed #555555;
+}
+.textPreviewDeletedImg {
+	cursor: help;
+	color: #888888;
+	border-bottom: 1px dotted #555555;
+}
+.previewDeletedImg {
+	position: fixed;
+	background-color: #ffffff;
+	border: 1px solid #000000;
+	padding: 10px 15px 10px 20px;
+	z-index: 1000;
+	margin: 3px 0 0 -6px;
+	display: none;
+	width: 580px;
+}
+.rightarrow {
+	font-size: 18px;
+	color: #888888;
+	font-family: "Times New Roman",Times,Georgia,Serif;
+}
+
+.middot {
+	font-size: 10px;
+	color: #eeeeee;
+}
+.spanSlashGray {
+	font-size: 14px;
+	color: #aaaaaa;
+}
+.tableAfterImg, .tableBeforeImg {
+	margin: 0;
+	padding: 0;
+}
+.tdAfterImgNumber, .tdAfterImgCaption, .tdBeforeImgNumber, .tdBeforeImgCaption  {
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+	font-family: Verdana, Arial, Courier;
+	font-size: 12px;
+}
+.tdAfterImgNumber, .tdBeforeImgNumber {
+	padding: 9px 3px 0 3px;
+	font-size: 12px;
+}
+
+#lean_overlay {
+    position: fixed;
+    z-index: 10000;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    background: #000;
+    display: none;
+}
+#divSortImages {
+	width: 800px;
+	height: 500px;
+	padding: 40px 30px 30px 30px; 
+    display: none;
+    background: #fff;
+		border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+		box-shadow: 0px 0px 4px rgba(0,0,0,0.7); -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7); -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
+	overflow: auto; 
+	overflow-y:auto;
+	overflow-x: hidden;
+}
+#divSortingArea {
+}
+#divSortImagesClose {
+	margin: 0;
+	position: fixed;
+	top: 10px;
+	right: 100px;
+}
+#spanSortImagesClose, #spanSortImagesSave {
+	font-size: 14px;
+	cursor: pointer;
+	margin-left: 30px;
+}
+#spanSortImagesClose {
+	color: #dddddd;
+	border-bottom: 1px dashed #dddddd;
+}
+#spanSortImagesSave {
+	color: #ccffcc;
+	border-bottom: 1px dashed #ccffcc;
+}
+#spanSortImagesClose:hover, #spanSortImagesSave:hover {
+	font-size: 14px;
+	color: #ffffff;
+	border-bottom: 1px dashed #eeeeee;
+}
+#divSortImagesHelp {
+	margin: -25px 0 5px 5px;
+	position: absolute;
+	color: #444444;
+	font-size: 12px;
+}
+
+#sortable { 
+	list-style-type: none;
+	margin: 0;
+	padding: 0; 
+}
+#sortable li { 
+	margin: 10px 30px 30px 0; 
+	padding: 4px 1px 1px 3px; 
+	float: left; 
+	width: 200px; 
+	height: 200px; 
+	text-align: left; 
+}
+#sortable span { 
+	font-color:#000000; 
+	background-color: #ffffff; 
+	padding: 2px; 
+	opacity: 0.5;
+}

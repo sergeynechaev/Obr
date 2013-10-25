@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<!--
+/* Обрамлятор - программа для оформления ссылок на фотографии тегами IMG
+ * с заданными настройками.
+ *
+ * Версия 2.2 beta
+ * Актуальную версию вы всегда сможете найти по адресу
+ * http://dert.ru/obr/
+ *
+ * Разрешается свободное использование и распространение при условии
+ * сохранения авторства, копирайтов и ссылок на сайты автора.
+ *
+ * (c) Сергей Нечаев, 2010
+ * http://sergeynechaev.com
+ *
+ /
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title> &laquo;Обрамлятор&raquo; 2.2 beta </title>
+
+<link rel="stylesheet" href="css/style.css?2.1" type="text/css" />
+<link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+<script type="text/javascript" src="js/obr.js?2.2"></script>
+<script type="text/javascript" src="js/obr.utils.js?2.2"></script>
+<script type="text/javascript" src="js/jquery.color.js"></script>
+<script type="text/javascript" src="js/jquery.colorpicker.js"></script>
+<script type="text/javascript" src="js/jquery.autoresize.js"></script>
+<script type="text/javascript" src="js/jquery.leanModal.js"></script>
+<script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="js/obr.init.js?2.2"></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-2262018-4']);
+_gaq.push(['_setDomainName', 'dert.ru']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</head>
+
+<body>
+
+<div id="divHeader">
+	<h1>&laquo;Обрамлятор&raquo; фотографий <sup id="supVersion">2.2&#946;</sup></h1>
+	<div class="divMenu" id="MenuHowto">Что это и как им пользоваться?</div>
+	<div class="divMenu" id="MenuSimple">Просто</div>
+	<div class="divMenuActive" id="MenuExt">Красиво</div>
+	<div class="divMenu" id="MenuHistory">История версий</div>
+	<div class="divMenu" id="MenuAbout">Спасибо?</div>
+</div>
+
+<div id="tabMenuSimple">
+
+<br />
+<div id="divToggleSettings" class="divToggleSettings"><img id="imgToggleSettings" src="images/btn_collapse.gif" width="21" height="30" border="0" alt="" title=""></div>
+
+<form id="frmObr" name="frmObr">
+<div id="SettingsCollapseWrapper">
+
+<p>Получить результат в виде &nbsp; <span id="spanResultHtml" onclick="SetResultFormat('html');">HTML для блога</span> &nbsp; <span id="spanResultBBCode" onclick="SetResultFormat('bbcode');">BBCode для форума</span></p>
+
+<p id="pBorder"><label for="chkAddBorder">Добавлять рамку вокруг фото</label> <input id="chkAddBorder" name="chkAddBorder" type="checkbox" onclick="ShowHideElement('chkAddBorder', 'spanBorderSize')" checked> <span id="spanBorderSize"><label for="inpBorderSize">шириной</label> <input id="inpBorderSize" name="inpBorderSize" type="text" size="1" value="1"> px и <label for="inpBorderColor">цветом</label> <input id="inpBorderColor" name="inpBorderColor" type="text" size="9" value="#000000"> <span id="colorSelector"><span style="background-color: #000000"><img src="images/blank.gif" width="16" height="16" /></span></span></span></p>
+
+<p id="pLjcut"><label for="chkAddLjcut">Вставлять тег lj-cut</label> <input id="chkAddLjcut" name="chkAddLjcut" type="checkbox" onclick="ShowHideElement('chkAddLjcut', 'spanLjcut')" checked> <span id="spanLjcut"><label for="inpLjCutAfter">после</label> <input id="inpLjCutAfter" name="inpLjCutAfter" type="text" size="1" value="1"> фото c <label for="inpLjCutText">текстом</label> <input id="inpLjCutText" name="inpLjCutText" type="text" size="38" style="width:252px" value=" смотреть дальше | ещё # фото "></span></p>
+
+<p><label for="chkAddNumber">Вставлять номер</label> <input id="chkAddNumber" name="chkAddNumber" type="checkbox" onclick="ShowHideElement('chkAddNumber', 'spanAddNumber')"> <span id="spanAddNumber" style="display:none;"><label for="inpAddNumberText">c текстом</label> <input id="inpAddNumberText" name="inpAddNumberText" type="text" size="14" value="Фото #."> <span id="spanAddNumberBefore" class="switchAddNumber switchAddNumberActive">перед фото</span> <span id="spanAddNumberAfter" class="switchAddNumber">после фото</span></span></p>
+
+<p>Добавить: <input id="chkAddCopyright" name="chkAddCopyright" type="checkbox" checked><label for="chkAddCopyright" class="lblAddCopyright">ссылку на &laquo;Обрамлятор&raquo;,</label> <span id="spanAddRepostLikes"><!--<input id="chkAddRepost" name="chkAddRepost" type="checkbox"><label for="chkAddRepost" class="lblAddRepost">кнопку &laquo;Перепост&raquo;</label>, --><input id="chkAddLikes" name="chkAddLikes" type="checkbox" checked><label for="chkAddLikes" class="lblAddLikes">Репост и &laquo;лайки&raquo; соцсетей</label></span></p>
+
+<textarea id="txtSourceText" name="txtSourceText" cols="55" rows="8" onfocus="ClearTestContent();">
+Эти ссылки тут для примера. Жамкните и посмотрите, что получится.
+При клике на это поле ссылки исчезнут, и вы сможете вставить свои.
+
+http://img-fotki.yandex.ru/get/5300/sergeynechaevcom.3/0_49a17_bfa8edc9_orig.jpg
+http://img-fotki.yandex.ru/get/6001/sergeynechaevcom.3/0_49a18_eec8ec28_orig.jpg
+http://img-fotki.yandex.ru/get/4704/sergeynechaevcom.6/0_5b3f2_becf43ad_orig.jpg
+http://img-fotki.yandex.ru/get/5900/sergeynechaevcom.2/0_48634_bf7f371b_orig.jpg
+</textarea> <label for="txtSourceText"><i>исходник</i></label>
+</div> <!-- / Settings Collapse Wrapper -->
+<div id="tabMenuSimpleResult">
+	<div id="divMenuSimpleResultDo"><input type="button" id="btnDo" name="btnDo" onclick="DoPizdato()" class="button" value="Жамк!">&nbsp;&nbsp;<span id="spanRefreshHelpText"><span class="leftarrowsmall">&larr;</span>&nbsp;Можно изменить настройки, добавить ссылки и обновить.</span><br /><br />Получить: <span id="spanResultLJSimple" class="spanResultSwitch spanResultSwitchActive">html для ЖЖ</span>&nbsp;<span id="spanResultHtmlSimple" class="spanResultSwitch">чистый html</span><br /><br /></div>
+	<textarea id="txtDestText" name="txtDestText" cols="55" rows="15" onfocus="select(this);"></textarea> <label for="txtDestText"><i>результат</i></label>
+	<p style="line-height:140%;font-size:13px;"><br /><i>Если вам нужно добавить текст до или после картинок,<br />используйте раздел &laquo;<span id="spanExtFormatLink">Красиво</span>&raquo;.</i></p>
+</div>
+<div id="tabMenuExt">
+	<div id="divMenuExtDo"><input type="button" id="btnDoExtOne" name="btnDoExtOne" onclick="DoPizdato()" class="buttonExt" value="Жамк &mdash; раз!">&nbsp;&nbsp;<span id="spanExtRefreshHelpText"><span class="leftarrowsmall">&larr;</span>&nbsp;Можно изменить настройки, добавить ссылки и обновить.</span><br /><br /></div>
+	<div id="divSelectImageSize"></div>
+	<div id="divImproveResult"><span style="line-height:140%;font-size:13px;">После того, как жамкните в первый раз, тут появятся ваши фото.<br />Щелкая по голубым полям, можно добавлять текст до или после картинки.<br /><b>Внизу нужно будет cделать &laquo;Жамк &mdash; два!&raquo; и получить результат.</b></span></div>
+</div>
+</form>
+</div> <!-- / menu Simple + Ext -->
+
+<div id="tabMenuHowto">
+<br />
+<h2>Зачем нужен &laquo;Обрамлятор&raquo; и как им пользоваться?</h2></a>
+<p>Например, нужно вставить в блог или на форум сразу несколько фотографий, пронумеровать и красиво<br />
+подписать их. Скормите &laquo;Обрамлятору&raquo; ссылки на ваши фотографии, он их проанализирует и сформирует<br />
+по вашим настройкам новый результат. Сами картинки могут находиться где угодно &mdash; на вашем хостинге,<br />
+либо на любом популярном фотохостинге.
+</p>
+<p><i>Вставляемые ссылки на фото могут быть разделены чем угодно:<br />запятыми, пробелами, новыми строками, другими словами и т.п.</i></p>
+<p style="padding:0;margin-bottom:8px;">Для начала поместите в поле &laquo;исходник&raquo; текст, содержащий ссылки на ваши фотографии,<br />
+сделайте необходимые настройки и нажмите кнопку &laquo;Жамк &mdash; раз!&raquo;:
+</p>
+<p style="padding:0;margin-bottom:16px;"><img src="images/howto1.png" style="border:solid 1px #000000"/></p>
+<p style="padding:0;margin-bottom:8px;">Область настроек автоматически свернется, и можно будет добавлять текст до или после картинок.<br />
+Доступна удобная сортировка фотографий, которая открывается в отдельном окне, а также предварительный просмотр:
+</p>
+<p style="padding:0;margin-bottom:16px;"><img src="images/howto2.png" style="border:solid 1px #000000"/></p>
+<p style="padding:0;margin-bottom:8px;">При необходимости можно удалить картинки. Подведя курсор к надписи &laquo;Картинка удалена&raquo;, можно посмотреть<br />
+удаленную картинку. Также есть возможность восстановить удаленную картинку обратно:
+</p>
+<p style="padding:0;margin-bottom:16px;"><img src="images/howto3.png" style="border:solid 1px #000000"/></p>
+<p style="padding:0;margin-bottom:8px;">Внизу, после всех картинок, нужно будет нажать кнопку &laquo;Жамк &mdash; два!&raquo; и получить результат. По умолчанию<br />предлагается вариант html-кода для вставки в ЖЖ-блог, его удобно редактировать. В чистом html весь<br />текст оформлен тегами, этот код можно вставлять на любую веб-страницу:<br />
+</p>
+<p style="padding:0;margin-bottom:16px;"><img src="images/howto4.png" style="border:solid 1px #000000"/></p>
+<p style="padding:0;margin-bottom:2px;">Список всех возможностей &laquo;Обрамлятора&raquo;:</p>
+<p style="padding:0;margin:0;">
+&mdash; формирование html для блога или bb-кодов для форума,<br />
+&mdash; добавление рамки вокруг фото любой толщины и цвета,<br />
+&mdash; вставка тега lj-cut с произвольным текстом после любой картинки,<br />
+&mdash; нумерация фотографий, номер ставится до или после картинки,<br />
+&mdash; добавление произвольного текста до и после фото,<br />
+&mdash; определение и прописывание в результате ширины и высоты картинок,<br />
+&mdash; удобное добавление, удаление и сортировка картинок &laquo;на лету&raquo;,<br />
+&mdash; добавление в ЖЖ-пост кнопки перепоста и &laquo;лайков&raquo; соцсетей,<br />
+&mdash; предварительный просмотр результата в отдельном окне браузера.
+</p>
+</div>
+
+<div id="tabMenuHistory">
+<br />
+<h2>История версий &laquo;Обрамлятора&raquo;</h2>
+<p><i>2.2 &#946;, в процессе разработки</i><br />
+&mdash; включены по умолчанию "лайки" соцсетей.<br />
+&mdash; убрана отдельная галочка "добавить кнопку "перепост", теперь он совмещен с "лайками" соцсетей.<br />
+</p>
+<p><i><a href="http://dert.ru/obr/old.2.1/">2.1</a> &#946;, 29 февраля 2012 г.</i><br />
+&mdash; появилась возможность добавления картинок уже в процессе редактирования, существующие<br />
+&nbsp;&nbsp;&nbsp;&nbsp;картинки и подписи к ним остаются.<br />
+&mdash; после изменения настроек можно обновить область редактирования картинок.<br />
+&mdash; изменен формат вывода результата, по умолчанию используется вывод с минимумом тегов<br />
+&nbsp;&nbsp;&nbsp;&nbsp;для постинга в ЖЖ, отдельно можно получить чистый html-код.<br />
+&mdash; добавлено удаление картинок с возможностью их просмотра и восстановления обратно.<br />
+&mdash; добавлена поддержка ката для других систем, вместе с тегом lj-cut добавляется тег cut и комментарий more.<br />
+&mdash; добавлена защита от случайного обновления или закрытия страницы с &laquo;Обрамлятором&raquo;.<br />
+&mdash; все внешние ссылки открываются в новом окне &mdash; дополнительная защита от случайного ухода со страницы.<br />
+&mdash; исправлена ошибка формирования результата для постинга в ЖЖ, не добавлялся параметр vspace,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;если не была задана рамка вокруг фото.<br />
+&mdash; исправлена ошибка, могущая привести к зависанию js-скрипта при редактировании большого числа фото.<br />
+&mdash; исправлена ошибка, когда после предварительного просмотра стирался текст-справка у первой картинки.<br />
+&mdash; исправлена ошибка формирования текста lj-cut'a в случае, если задается знак двойной решетки ##.<br />
+&mdash; исправлена ошибка вывода номера фото, теперь если вообще на задана #, то номер не будет добавлен.<br />
+&mdash; исправлена ошибка вывода номера фото в случае, если задается знак двойной решетки ##.<br />
+&mdash; сделаны ссылки на предыдущие версии &laquo;Обрамлятора&raquo;.<br />
+&mdash; оптимизирован код, улучшено быстродействие.<br />
+</p>
+<p><i><a href="http://dert.ru/obr/old.2.0/">2.0</a> &#946;, 7 февраля 2012 г.</i><br />
+&mdash; добавлен модуль сортировки картинок путем их перетаскивания мышкой в любой<br />
+&nbsp;&nbsp;&nbsp;&nbsp;последовательности, модуль открывается в новом окне.<br />
+&mdash; добавлен модуль предварительного просмотра результата в отдельном окне браузера.<br />
+&mdash; изменено оформление и алгоритм вставки номера до и после картинки.<br />
+&mdash; номера по умолчанию теперь вставляются перед фото (раньше было после фото).<br />
+&mdash; добавлена возможность добавлять в результат кнопку перепоста и ссылки на соцсети в ЖЖ.<br />
+&mdash; изменен алгоритм парсинга исходных ссылок, добавлена возможность использовать для картинок<br />
+&nbsp;&nbsp;&nbsp;&nbsp;фотохостинг самого ЖЖ (спасибо Артему Кривополенову).<br />
+&mdash; область настроек можно сворачивать для освобождения пространства и разворачивать при необходимости.<br />
+&mdash; добавлена защита от случайного повторного нажатия кнопки &laquo;Жамк-раз&raquo;.<br />
+&mdash; увеличен шрифт для удобства редактирования текста до и после картинок.<br />
+&mdash; исправлена ошибка при формировании bb-кодов (добавлялся html тег br).<br />
+&mdash; добавлены кнопки для быстрой перемотки в начало и в конец списка картинок.<br />
+&mdash; исправлена некорректная работа кнопки &laquo;Жамк - два&raquo;, не перечитывались настройки.<br />
+&mdash; в разделе &laquo;Красиво&raquo; область настроек автоматически сворачивается после загрузки картинок (&laquo;Жамк - раз&raquo;).<br />
+&mdash; текст до и после картинки теперь имеет одинаковый по умолчанию размер.<br />
+&mdash; оптимизирован алгоритм автоматического расширения области текста над и под картинкой.<br />
+&mdash; переделан справочный раздел.<br />
+&mdash; изменен текст lj-cut'а по умолчанию.
+</p>
+<p><i><a href="http://dert.ru/obr/old.1.0/">1.0</a> &#946;, 15 февраля 2011 г.</i><br />
+&mdash; исправлена ошибка распознавания ссылок на картинку в случае кириллического домена .рф.<br />
+&mdash; номер фото можно добавлять как до, так и после картинки.<br />
+&mdash; убрано добавление текста с номером фото в свойства alt и title тега img.<br />
+&mdash; в разделе &laquo;Красиво&raquo; добавлена сортировка фото.<br />
+&mdash; в тег lj-cut автоматически добавляется число картинок для просмотра под катом.<br />
+&mdash; текст до и после фото, номера фото, сами картинки обрамляются в тег p с правильно проставленными <br />
+&nbsp;&nbsp;&nbsp;&nbsp;интервалами между абзацами.<br />
+&mdash; при оформлении фото через раздел &laquo;Красиво&raquo; высчитывается высота и ширина картинки и<br />
+&nbsp;&nbsp;&nbsp;&nbsp;прописывается в теге img.<br />
+&mdash; появилась возможность добавлять текст до и после фото.<br />
+&mdash; сделано разделение функционала на &laquo;Просто&raquo; и &laquo;Красиво&raquo;.<br />
+&mdash; добавлены меню-вкладки вверху страницы, все несущественные элементы вынесены на скрытые вкладки.<br />
+&mdash; существенно изменен интерфейс.
+</p>
+<p><i>0.3 &#946;, 3 января 2011 г.</i><br />
+&mdash; добавлен визуальный элемент для выбора цвета рамки.<br />
+&mdash; в исходик теперь можно вставлять ссылки на изображения в любом формате, в т.ч. внутри тегов,<br /> &nbsp;&nbsp;&nbsp;&nbsp;обработаны будут только ссылки, содержащие картинки.<br />
+&mdash; добавлена возможность получения результата в формате BBCodes для использования на форумах.<br />
+&mdash; при желании в результат можно добавить ссылку на &laquo;Обрамлятор&raquo;.<br />
+&mdash; проведен рефакторинг кода.<br />
+&mdash; доработка интерфейса.</p>
+<p><i>0.2 &#946;, 25 декабря 2010 г.</i><br />
+&mdash; добавлена возможность нумеровать фотографии, текст с номером вставляется<br />
+&nbsp;&nbsp;&nbsp;&nbsp;как перед фото, так и в свойства alt и title тега img.<br />
+&mdash; оптимизирован алгоритм поиска ссылок на фото в исходнике,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;теперь не надо указывать номер строки, с которого начинаются ссылки,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;а сами ссылки могут быть разделены чем угодно (спасибо Артему Кривополенову).<br />
+&mdash; исправлена некорректная работа в *nix-системах (обрезалось расширение файла).<br />
+&mdash; доработка мелких багов в интерфейсе.</p>
+<p><i>0.1 &#946;, 24 декабря 2010 г.</i><br />
+&mdash; первая версия, &laquo;на коленке&raquo; за часок. Тем не менее, умеет все самое важное.</p>
+</div>
+
+<div id="tabMenuAbout">
+<br />
+<h2>Как можно сказать мне спасибо?</b></h2>
+<p>Меня зовут Сергей Нечаев и изначально я написал &laquo;Обрамлятор&raquo; для личного использования<br />
+в своем ЖЖ &mdash; <a href="http://dert.livejournal.com">http://dert.livejournal.com</a></p>
+<p>&laquo;Обрамлятор&raquo; &mdash; бесплатная программа и без рекламы. Вы можете совершенно свободно<br />
+использовать его для своих нужд. Если просто желаете сказать мне спасибо, включайте ссылку<br />
+на &laquo;Обрамлятор&raquo; в ваши посты, для этого есть специальная галочка :)</p>
+<p>Но, конечно, я буду безумно рад, если вы захотите отблагодарить меня чем-то более материальным,<br />чем просто &laquo;спасибо&raquo;. Особенно, если &laquo;Обрамлятор&raquo; здорово экономит ваше время (а я уверен, что<br />
+это так). К счастью, в Интернете давно придумали способ добровольных пожертвований &mdash; donations.<br />
+Вы можете перевести любую сумму &mdash; хоть рубль, хоть сто, хоть тысячу, мне будет приятно<br />
+уже от одного факта вашего внимания.</p>
+<p>Сделать добровольный взнос на поддержку и развитие &laquo;Обрамлятора&raquo; можно:</p>
+<p>&mdash; через <a href="https://money.yandex.ru">Яндекс-Деньги</a> на кошелек <b>410011305811910</b>:<br />&nbsp;&nbsp;&nbsp;<iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://money.yandex.ru/embed/donate.xml?uid=410011305811910&amp;default-sum=100&amp;targets=%d0%9e%d0%b1%d1%80%d0%b0%d0%bc%d0%bb%d1%8f%d1%82%d0%be%d1%80&amp;project-name=%d0%9e%d0%b1%d1%80%d0%b0%d0%bc%d0%bb%d1%8f%d1%82%d0%be%d1%80&amp;project-site=http%3a%2f%2fdert.ru%2fobr&amp;button-text=04&amp;hint=" width="450" height="108"></iframe></p>
+<p>&mdash; через <a href="http://www.webmoney.ru/">WebMoney</a> на рублевый <b>R291529646763</b> или долларовый <b>Z343271744155</b> кошельки.<br />
+&mdash; через <a href="https://w.qiwi.ru/transfer.action">QIWI кошелек</a> на номер +7 <b>9212990106</b>.<br />
+&mdash; через <a href="https://www.paypal.com/ru/cgi-bin/webscr?cmd=_send-money">PayPal</a> на мой адрес <b>snechayev@gmail.com</b>.
+</p>
+<p>&nbsp;</p>
+<p>Об ошибках или идеях для &laquo;Обрамлятора&raquo; пишите в любой из этих постов в моем ЖЖ:<br />
+<a href="http://dert.livejournal.com/tag/обрамлятор">http://dert.livejournal.com/tag/обрамлятор</a></p>
+</div>
+
+<div id="divCopyright">
+<br /><br /><br />
+&copy; 2010 &mdash; <script>document.write((new Date()).getFullYear());</script> Сергей Нечаев<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://sergeynechaev.com">http://sergeynechaev.com</a>
+<br /><br />
+</div>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter18214549 = new Ya.Metrika({id:18214549,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/18214549" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<div id="divBottomLink">
+<span class="rightarrowsmall">&rarr;</span> <a href="http://dert.ru/obr/">http://dert.ru/obr/</a>
+</div>
+
+<div id="divSortImages">
+	<div id="divSortImagesClose" align="right"><span id="spanSortImagesSave">Сохранить</span><span id="spanSortImagesClose">Закрыть</span></div>
+	<div id="divSortImagesHelp">Для сортировки просто перетаскавайте картинки мышкой:</div>
+	<div id="divSortingArea">
+		<ul id="sortable"></ul>
+		</div>
+</div>
+
+</body>
+</html>
