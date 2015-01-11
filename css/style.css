@@ -366,16 +366,16 @@ body > div#divBottomLink {
     background: #fff;
 		border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 		box-shadow: 0px 0px 4px rgba(0,0,0,0.7); -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.7); -moz-box-shadow: 0 0px 4px rgba(0,0,0,0.7);
-	overflow: auto; 
-	overflow-y:auto;
-	overflow-x: hidden;
+	overflow: visibile;
 }
 #divSortingArea {
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 #divSortImagesClose {
 	margin: 0;
-	position: fixed;
-	top: 10px;
+	position: absolute;
+	top: -25px;
 	right: 100px;
 }
 #spanSortImagesClose, #spanSortImagesSave {
