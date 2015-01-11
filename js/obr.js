@@ -117,7 +117,7 @@ function DoPizdato()
     arrImagesOrderTemp = arrImagesOrder.slice(0);
 	
 	// preview or create the result depending on the format type
-	if( isExtFormat ) {
+	if( isExtFormat && arrImages.length > 0 ) {
 		
 		// add the help text for the first run
 		if( !isDoPizdatoPressed ) {
