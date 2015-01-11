@@ -93,13 +93,13 @@ function DoPizdato()
 	GetSettings();
 	
 	// parse the source text
-	var re = /http:\/\/[._\w\d\-\/&%\?;А-Яа-я]+/gi;
-	var tmpRes = $("#txtSourceText").val().match( re );
+	var re = /https?:\/\/[._\w\d\-\/&%\?;А-Яа-я]+/gi;
+	var tmpRes = $("#txtSourceText").val().match( re ) || [];
 	
 	// get only links ending with picture ext (gif, jpeg, png, bmp)
 	// or links started with '/pic' word - special for LJ picture hosting
 	for( var i = 0; i < tmpRes.length; i++ ) {
-	   if( tmpRes[i] != '' && ( tmpRes[i].search(/\.?[jpeg|jpg|png|gif|bmp]$/i) != -1 
+	   if( tmpRes[i] != '' && ( tmpRes[i].search(/\.?[jpe?g|png|gif|bmp]$/i) != -1 
 	                         || tmpRes[i].search(/\/pic\/[\w\d]{8}$/i) != -1 ) ) {
 	                         	
 			// check if we already have image in the stack
@@ -117,7 +117,7 @@ function DoPizdato()
     arrImagesOrderTemp = arrImagesOrder.slice(0);
 	
 	// preview or create the result depending on the format type
-	if( isExtFormat ) {
+	if( isExtFormat && arrImages.length > 0 ) {
 		
 		// add the help text for the first run
 		if( !isDoPizdatoPressed ) {
