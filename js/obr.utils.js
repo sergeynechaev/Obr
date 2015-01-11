@@ -73,7 +73,7 @@ function CalculateSettingsAreaHeight()
 function CalculateSortingAreaSize()
 {
 	$('#divSortImages').width( $(window).width() - 100 );
-	$('#divSortImages').height( $(window).height() - 120 );
+	$('#divSortImages, #divSortingArea').height( $(window).height() - 120 );
 }
 
 /**
