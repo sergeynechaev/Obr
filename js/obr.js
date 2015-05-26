@@ -1,10 +1,10 @@
 /**
  * Obramlyator
- * Version 2.2 beta
+ * Version 2.2.2 beta
  * For last version please visit http://dert.ru/obr/
  *
  * This program is free for personal or non-commercial use
- * (c) 2010-2012 Sergey Nechaev - http://sergeynechaev.com
+ * (c) 2010 Sergey Nechaev - http://sergeynechaev.com
  * 
  * @include "/Obr/js/jquery-doc.js"
  * @include "/Obr/js/obr.init.js"
