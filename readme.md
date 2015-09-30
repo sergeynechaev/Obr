@@ -16,6 +16,6 @@
 
 Разрешается свободное использование и распространение при условии сохранения авторства, копирайтов и ссылок на сайты автора.
 
-(c) 2015 Сергей Нечаев
-[dert.ru/obr](http://dert.ru/obr)
-[nechaev.org](http://nechaev.org)
+	(c) 2015 Сергей Нечаев
+	[dert.ru/obr](http://dert.ru/obr)
+	[nechaev.org](http://nechaev.org)
